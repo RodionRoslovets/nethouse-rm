@@ -6,6 +6,7 @@ const CharList = ({chars}) => {
     let processedChars = chars.map(char=>(
         <CharListItem 
             key={char.id}
+            id={char.id}
             name={char.name}
             src={char.image}
         />

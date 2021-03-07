@@ -1,39 +1,24 @@
-import React, { useReducer, useEffect } from 'react'
-import getCharacters from './helpers/getCharacters';
-import {reducer} from './reducer';
-import CharList from './components/charList'
-import { InView } from 'react-intersection-observer';
+import React from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Main from './pages/main'
+import Character from './pages/character'
 
 import './App.css'
 
-
-
 function App() {
-  let [data, dispatch] = useReducer(reducer)
-
-  useEffect( ()=>{
-    async function fetchData(){
-      await getCharacters('https://rickandmortyapi.com/api/character').then(res=>dispatch({type:'INIT', payload:res.data}))
-    }
-
-    fetchData()
-  }, [])
-
-  async function loadMore(){
-    await getCharacters(data.info.next).then(res=>dispatch({type:'LOADMORE', payload:res.data}))
-  }
+  
 
   return (
-    <div>
-      {data ? 
-        <>
-          <CharList chars={data.results}/>
-          <InView onChange={(inView)=>inView && data.info ? loadMore() : null}>
-          </InView>
-        </>
-      : null}
-      
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path='/'>
+          <Main/>
+        </Route>
+        <Route path='/char'>
+          <Character />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
