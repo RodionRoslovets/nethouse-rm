@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Main from './pages/main'
-import Character from './pages/character'
+import CharacterPage from './pages/character'
 
 import './App.css'
 
@@ -15,7 +15,7 @@ function App() {
           <Main/>
         </Route>
         <Route path='/char'>
-          <Character />
+          <CharacterPage />
         </Route>
       </Switch>
     </Router>

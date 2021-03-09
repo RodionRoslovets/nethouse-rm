@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import getCharacters from '../helpers/getCharacters'
 import {useLocation} from 'react-router-dom'
+import Character from '../components/character'
 
-const Character = () => {
+const CharacterPage = () => {
     let [character, setCharacter] = useState({})
     let loc = useLocation()
     let id = +loc.pathname.slice(6)
@@ -10,16 +11,18 @@ const Character = () => {
     useEffect(
         ()=>{
             async function fetchData(){
-            await getCharacters(`https://rickandmortyapi.com/api/character/${id}`)
-                    .then(res=>setCharacter(res.data))
+                await getCharacters(`https://rickandmortyapi.com/api/character/${id}`)
+                        .then(res=>setCharacter(res.data))
             }
     
             fetchData()
-        }, 
+        }, [] 
     )
     return (
-        <p>{JSON.stringify(character)}</p>
+        <>
+            {character.id ? <Character character={character} /> : null}
+        </>
      );
 }
  
-export default Character;
+export default CharacterPage;
