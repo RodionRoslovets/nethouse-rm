@@ -1,0 +1,32 @@
+.character{
+    width: 100%;
+    background:black;
+    border-radius:8px;
+    padding:12px;
+    color:#fff;
+    display: flex;
+}
+
+.character__description{
+    padding: 0 12px;
+}
+
+.character figure img{
+    width: 100%;
+}
+
+.character__status_alive{
+    color:rgb(25, 218, 25);
+}
+.character__status_dead{
+    color:rgb(255, 0, 0);
+}
+.character__status_unknown{
+    color:rgb(250, 250, 250);
+}
+
+@media screen and (max-width:767px){
+    .character{
+        flex-direction: column;
+    }
+}

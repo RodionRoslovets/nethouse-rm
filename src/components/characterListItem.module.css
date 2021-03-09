@@ -1,0 +1,32 @@
+.charListItem{
+    margin:0 0 12px 0;
+    width: 49%;
+}
+
+.charListItem a{
+    display:flex;
+    background:black;
+    border-radius:8px;
+    padding:12px;
+    text-decoration: none;
+}
+
+.charListItem a p{
+    color:#fff;
+    width: 100%;
+    padding: 12px;
+}
+
+.charListItem figure img{
+    width: 100%;
+}
+
+@media screen and (max-width:767px){
+    .charListItem {
+        width: 100%;
+    }
+
+    .charListItem figure{
+        width: 50%;
+    }
+}

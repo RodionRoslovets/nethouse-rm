@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Main from './pages/main'
 import CharacterPage from './pages/character'
 
-import './App.css'
-
 function App() {
   
 

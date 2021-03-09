@@ -20,9 +20,11 @@ const Main = () => {
     }, [])
 
     async function loadMore(){
-        await getCharacters(data.info.next)
-                .then(res=>dispatch({type:'LOADMORE', payload:res.data}))
-                .catch(()=>{setError('Загрузка не удалась')})
+        if(data.info.next){
+            await getCharacters(data.info.next)
+            .then(res=>dispatch({type:'LOADMORE', payload:res.data}))
+            .catch(()=>{setError('Загрузка не удалась')})
+        }
     }
     return ( 
         <div>

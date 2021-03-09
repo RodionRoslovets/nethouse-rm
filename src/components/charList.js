@@ -1,6 +1,6 @@
 import React from 'react';
-
 import CharListItem from './charListItem'
+import style from './characterList.module.css'
 
 const CharList = ({chars}) => {
     let processedChars = chars.map(char=>(
@@ -12,7 +12,7 @@ const CharList = ({chars}) => {
         />
     ))
     return ( 
-        <ul>
+        <ul className={style.charList}>
             {processedChars}
         </ul>
      );

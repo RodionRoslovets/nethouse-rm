@@ -1,11 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import style from './characterListItem.module.css'
 
 const CharListItem = ({src, name, id}) => {
     return ( 
-        <li>
+        <li className={style.charListItem}>
             <Link to={`char/${id}`}>
-                <img src={src} alt={name}/>
+                <figure>
+                    <img src={src} alt={name}/>
+                </figure>
                 <p>{name}</p>
             </Link>
         </li>
