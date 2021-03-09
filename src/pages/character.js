@@ -5,6 +5,7 @@ import Character from '../components/character'
 
 const CharacterPage = () => {
     let [character, setCharacter] = useState({})
+    let [error, setError] = useState('')
     let loc = useLocation()
     let id = +loc.pathname.slice(6)
 
@@ -13,6 +14,7 @@ const CharacterPage = () => {
             async function fetchData(){
                 await getCharacters(`https://rickandmortyapi.com/api/character/${id}`)
                         .then(res=>setCharacter(res.data))
+                        .catch(()=>{setError('Загрузка не удалась')})
             }
     
             fetchData()
@@ -21,6 +23,7 @@ const CharacterPage = () => {
     return (
         <>
             {character.id ? <Character character={character} /> : null}
+            {error ? <p className="error">{error}</p> : null}
         </>
      );
 }
