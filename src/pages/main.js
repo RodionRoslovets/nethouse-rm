@@ -30,9 +30,8 @@ const Main = () => {
         <div>
             {data ? 
                 <>
-                <CharList chars={data.results}/>
-                <InView onChange={(inView)=>inView && data.info ? loadMore() : null}>
-                </InView>
+                    <CharList chars={data.results}/>
+                    <InView onChange={(inView)=>inView && data.info ? loadMore() : null} />
                 </>
             : null}
             {error ? <p className="error">{error}</p> : null}
